@@ -1,18 +1,38 @@
 # Local SQL
 
-This repository contains the code for the Docker [SQL extension](), which enables you to create and manage SQL containers in Docker Desktop.
+![GitHub branch check runs](https://img.shields.io/github/check-runs/dzsquared/docker-sql-extension/main) &nbsp;![Docker Pulls](https://img.shields.io/docker/pulls/drewsk/docker-sql-extension) 
+
+
+This repository contains the code for the Docker [SQL extension](https://open.docker.com/extensions/marketplace?extensionId=drewsk/docker-sql-extension&tag=latest), which enables you to create and manage SQL containers in Docker Desktop.
 
 ## Get started
 
 After installing the extension, you can create a new SQL container by clicking on the "SQL containers" extension tab in Docker Desktop. Select the version of SQL Server you want to use, enter a container name, SQL port, and generate a password before clicking the plus button to create the container.
 
-Once a container is created, you can start, stop, and delete it using the buttons in the extension tab. You can connect to the container directly in the extension with the embedded sqlcmd tool or by using your preferred SQL client. For convenience the connection string is displayed in the extension tab and a button for launching Azure Data Studio is provided.
+![Docker SQL extension](./images/screenshot2.png)
+
+Once a container is created, you can start, stop, and delete it using the buttons in the extension tab. Under the container details you can create databases and connect to the container - either directly in the extension with the embedded sqlcmd tool or by using your preferred SQL client. For convenience the connection string is displayed in the extension tab and a button for launching Azure Data Studio is provided.
+
+![Creating a database](./images/create_database.png)
 
 _When launching Azure Data Studio from the extension the sa password is automatically copied into the clipboard, paste it in the connection dialog when Azure Data Studio opens._
 
-![Docker SQL extension](./images/screenshot2.png)
+> [!TIP]
+> A full help guide is available in the extension tab under the question mark icon.
 
-A full help guide is available in the extension tab under the question mark icon.
+### Embedded sqlcmd
+
+The extension includes the go-sqlcmd CLI tool installed on the service container, which allows you to run SQL queries directly from the extension without installing any additional tools on your machine. To launch sqlcmd, click on the "Connect with sqlcmd" icon next to the database name. An interactive terminal will launch and automatically login to your SQL database.
+
+![Opening sqlcmd](./images/open_sqlcmd.png)
+
+![Using sqlcmd](./images/query_sqlcmd.png)
+
+### Persistent storage
+
+The containers created by the SQL extension utilize persistent storage for `/var/opt/mssql`, including the database files. This means that the data in the container will persist even if the container is stopped or deleted and you have an easier pathway to interacting with database backups. Each container's volume is named after the container name (+timestamp) and is stored in the `.sqlcontainters` directory in your home folder.
+
+![Delete dialog](./images/delete_screenshot.png)
 
 ## Support
 
