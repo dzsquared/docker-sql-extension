@@ -65,17 +65,17 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} 
           labels: |
             maintainer=dzsquared
-            org.opencontainers.image.title="SQL container manager"
-            org.opencontainers.image.description="Create, connect, and manage SQL dev containers"
-            org.opencontainers.image.vendor="DrewSK.Tech"
-            com.docker.desktop.extension.api.version="0.3.4"
-            com.docker.extension.screenshots="[{'alt':'SQL extension with container details expanded.', 'url':'https://raw.githubusercontent.com/dzsquared/docker-sql-extension/main/images/screenshot2.png'}, {'alt':'SQL extension with two containers listed.', 'url':'https://raw.githubusercontent.com/dzsquared/docker-sql-extension/main/images/screenshot1.png'}]"
-            com.docker.desktop.extension.icon="https://raw.githubusercontent.com/dzsquared/docker-sql-extension/main/Database.png"
-            com.docker.extension.detailed-description="With the SQL extension you can create a new SQL container quickly in Docker Desktop. Select the version of SQL Server you want to use, enter a container name, SQL port, and generate a password before clicking the plus button to create the container. Once a container is created, you can start, stop, and delete it using the buttons in the extension tab. Connect to the container directly in the extension with the embedded sqlcmd tool or by using your preferred SQL client. For convenience the connection string is displayed in the extension tab and a button for launching Azure Data Studio is provided."
-            com.docker.extension.publisher-url="https://github.com/dzsquared/docker-sql-extension"
-            com.docker.extension.additional-urls="[{'title':'Source code and notices','url':'https://github.com/dzsquared/docker-sql-extension/blob/main/README.md'},{'title':'License','url':'https://github.com/dzsquared/docker-sql-extension/blob/main/LICENSE'}]"
-            com.docker.extension.categories="database"
-            com.docker.extension.changelog="<h3>1.0, Initial release</h3><ul><li>SQL container creation</li><li>Connection strings</li><li>Add and list databases</li><li>Embedded sqlcmd CLI</li></ul>"
+            org.opencontainers.image.title=SQL container manager
+            org.opencontainers.image.description=Create, connect, and manage SQL dev containers
+            org.opencontainers.image.vendor=DrewSK.Tech
+            com.docker.desktop.extension.api.version=0.3.4
+            com.docker.extension.screenshots=[{"alt":"SQL extension with container details expanded.", "url":"https://raw.githubusercontent.com/dzsquared/docker-sql-extension/main/images/screenshot2.png"}, {"alt":"SQL extension with two containers listed.", "url":"https://raw.githubusercontent.com/dzsquared/docker-sql-extension/main/images/screenshot1.png"}]
+            com.docker.desktop.extension.icon=https://raw.githubusercontent.com/dzsquared/docker-sql-extension/main/Database.png
+            com.docker.extension.detailed-description=With the SQL extension you can create a new SQL container quickly in Docker Desktop. Select the version of SQL Server you want to use, enter a container name, SQL port, and generate a password before clicking the plus button to create the container. Once a container is created, you can start, stop, and delete it using the buttons in the extension tab. Connect to the container directly in the extension with the embedded sqlcmd tool or by using your preferred SQL client. For convenience the connection string is displayed in the extension tab and a button for launching Azure Data Studio is provided.
+            com.docker.extension.publisher-url=https://github.com/dzsquared/docker-sql-extension
+            com.docker.extension.additional-urls=[{"title":"Source code and notices","url":"https://github.com/dzsquared/docker-sql-extension/blob/main/README.md"},{"title":"License","url":"https://github.com/dzsquared/docker-sql-extension/blob/main/LICENSE"}]
+            com.docker.extension.categories=database
+            com.docker.extension.changelog=<h3>1.0, Initial release</h3><ul><li>SQL container creation</li><li>Connection strings</li><li>Add and list databases</li><li>Embedded sqlcmd CLI</li></ul>
 
       # Build and push Docker image with Buildx
       # https://github.com/docker/build-push-action
