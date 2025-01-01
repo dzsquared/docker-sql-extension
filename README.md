@@ -5,7 +5,7 @@
 
 This repository contains the code for the Docker [SQL extension](https://open.docker.com/extensions/marketplace?extensionId=drewsk/docker-sql-extension&tag=latest), which enables you to create and manage SQL containers in Docker Desktop.
 
-### 🔌 Install via Docker Desktop https://open.docker.com/extensions/marketplace?extensionId=drewsk/docker-sql-extension&tag=latest
+### 🔌 Install via Docker Desktop https://open.docker.com/extensions/marketplace?extensionId=drewsk/docker-sql-extension&tag=0.2.0
 
 ## Get started
 
