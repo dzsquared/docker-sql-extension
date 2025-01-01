@@ -125,7 +125,7 @@ var ContainerRow = ({ container, startContainer, stopContainer, deleteContainer,
             try {
                 const result = await ddClient.extension.vm?.service?.get('/ready');
 
-                if (result !== null && result !== undefined && Boolean() == true) {
+                if (result !== null && result !== undefined && Boolean(result) == true) {
                     setReady(() => true);
                     clearInterval(timer);
                 }
