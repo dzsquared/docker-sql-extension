@@ -31,8 +31,8 @@ RUN apt-get update && apt-get install -y curl bzip2 && \
 RUN ./cli-${TARGETARCH}.sh
 
 FROM debian:bullseye-slim
-LABEL org.opencontainers.image.title="Docker SQL Dev: SQL dev container manager" \
-    org.opencontainers.image.description="SQL databases on demand, locally and easily" \
+LABEL org.opencontainers.image.title="SQL container manager" \
+    org.opencontainers.image.description="Create, connect, and manage SQL dev containers" \
     org.opencontainers.image.vendor="DrewSK.Tech" \
     com.docker.desktop.extension.api.version="0.3.4" \
     com.docker.extension.screenshots="[{\"alt\":\"SQL extension with container details expanded.\", \"url\":\"https://raw.githubusercontent.com/dzsquared/docker-sql-extension/main/images/screenshot2.png\"}, {\"alt\":\"SQL extension with two containers listed.\", \"url\":\"https://raw.githubusercontent.com/dzsquared/docker-sql-extension/main/images/screenshot1.png\"}]" \
