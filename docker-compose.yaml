@@ -1,0 +1,7 @@
+services:
+  local-sql-dev:
+    image: ${DESKTOP_PLUGIN_IMAGE}
+    ports:
+      - 9890:7681
+    volumes:
+      - /var/run/docker.sock.raw:/var/run/docker.sock

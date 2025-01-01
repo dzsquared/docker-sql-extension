@@ -1,0 +1,46 @@
+{
+  "icon": "database.svg",
+  "vm": {
+    "composefile": "docker-compose.yaml",
+    "exposes": {
+      "socket": "backend.sock"
+    }
+  },
+  "ui": {
+    "dashboard-tab": {
+      "title": "SQL containers",
+      "src": "index.html",
+      "root": "ui"
+    }
+  },
+  "host": {
+    "binaries": [
+      {
+        "darwin": [
+          {
+            "path": "/host/darwin/createVolumeFolder.sh"
+          },
+          {
+            "path": "/host/darwin/deleteVolumeFolder.sh"
+          }
+        ],
+        "linux": [
+          {
+            "path": "/host/linux/createVolumeFolder.sh"
+          },
+          {
+            "path": "/host/linux/deleteVolumeFolder.sh"
+          }
+        ],
+        "windows": [
+          {
+            "path": "/host/windows/createVolumeFolder.ps1"
+          },
+          {
+            "path": "/host/windows/deleteVolumeFolder.ps1"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+name: "CI - go tests"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  gotest:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: 'run go tests'
+      working-directory: ./backend
+      run: go test -v ./...
