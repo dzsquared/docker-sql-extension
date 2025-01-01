@@ -1,9 +1,11 @@
 # Local SQL
 
-![GitHub branch check runs](https://img.shields.io/github/check-runs/dzsquared/docker-sql-extension/main) &nbsp;![Docker Pulls](https://img.shields.io/docker/pulls/drewsk/docker-sql-extension) 
+![GitHub branch check runs](https://img.shields.io/github/check-runs/dzsquared/docker-sql-extension/main) &nbsp;![Docker Pulls](https://img.shields.io/docker/pulls/drewsk/docker-sql-extension)
 
 
 This repository contains the code for the Docker [SQL extension](https://open.docker.com/extensions/marketplace?extensionId=drewsk/docker-sql-extension&tag=latest), which enables you to create and manage SQL containers in Docker Desktop.
+
+### 🔌 Install via Docker Desktop https://open.docker.com/extensions/marketplace?extensionId=drewsk/docker-sql-extension&tag=latest
 
 ## Get started
 
