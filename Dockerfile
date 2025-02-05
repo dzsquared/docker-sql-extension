@@ -51,7 +51,7 @@ COPY --from=cli-stage /usr/bin/sqlcmd /usr/bin/sqlcmd
 COPY docker-compose.yaml .
 COPY metadata.json .
 COPY database.svg .
-COPY host /host
+COPY --chmod=0755 host /host
 
 COPY sql.sh /cli/sql.sh
 RUN chmod +x /cli/sql.sh 

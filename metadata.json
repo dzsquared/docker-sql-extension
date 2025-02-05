@@ -34,10 +34,10 @@
         ],
         "windows": [
           {
-            "path": "/host/windows/createVolumeFolder.ps1"
+            "path": "/host/windows/createVolumeFolder.cmd"
           },
           {
-            "path": "/host/windows/deleteVolumeFolder.ps1"
+            "path": "/host/windows/deleteVolumeFolder.cmd"
           }
         ]
       }
