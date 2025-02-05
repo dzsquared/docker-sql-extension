@@ -8,13 +8,14 @@ export async function CreateContainer(ddClient, containerConfig: ContainerConfig
         var createVolumeFolder = "createVolumeFolder.sh";
         var pathSeparator = "/";
         if (ddClient.host.platform === "win32") {
-            createVolumeFolder = "createVolumeFolder.ps1";
-            pathSeparator = "\\";
+            createVolumeFolder = "createVolumeFolder.cmd";
         }
 
         const volumePathResult = await ddClient.extension.host?.cli.exec(createVolumeFolder, [containerConfig.ContainerName]);
         console.log(volumePathResult);
-        containerConfig.VolumePath = volumePathResult.stdout.trim();
+        containerConfig.VolumePath = volumePathResult.stdout.replaceAll("\\", "/").trim();
+        
+        console.log("VolumePath: " + containerConfig.VolumePath);
 
         // parse the volume name from the last segment of the volume path
         const volumePathSegments = containerConfig.VolumePath.split(pathSeparator);
@@ -116,7 +117,7 @@ export async function DeleteContainer(ddClient, containerId: string, deleteVolum
         if (deleteVolume == true) {
             var deleteVolumeFolder = "deleteVolumeFolder.sh";
             if (ddClient.host.platform === "win32") {
-                deleteVolumeFolder = "deleteVolumeFolder.ps1";
+                deleteVolumeFolder = "deleteVolumeFolder.cmd";
             }
             await ddClient.extension.host?.cli.exec(deleteVolumeFolder, [volumePath]);
         }
