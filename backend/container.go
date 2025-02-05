@@ -100,7 +100,7 @@ func createContainer(ctx echo.Context) error {
 			{
 				Type:   "volume",
 				Source: containerInput.VolumeName,
-				Target: "/var/opt/mssql",
+				Target: "/var/opt/mssql/data",
 			},
 		},
 	}
@@ -271,6 +271,8 @@ func deleteContainer(ctx echo.Context) error {
 
 // function for creating a persistent volume
 func createVolume(client *client.Client, dctx context.Context, volumeName string, volumePath string) error {
+	logger.Infof("Creating volume %s at %s", volumeName, volumePath)
+
 	volumeConfig := &volume.CreateOptions{
 		Name:   volumeName,
 		Driver: "local",
