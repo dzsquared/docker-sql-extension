@@ -44,4 +44,8 @@ export class SqlContainer {
         return `azuredatastudio://openConnectionDialog?connectionName=${this.Name}&server=localhost,${this.Port1433}&authenticationType=SqlLogin&user=sa&password=${this.SApassword}&database=master&connectionProperties={"trustServerCertificate":"true"}`;
     }
 
+    public vscConnectionURI(): string {
+        return `vscode://ms-mssql.mssql/connect?profileName=${this.Name}&server=localhost,${this.Port1433}&database=master&authenticationType=SqlLogin&user=sa&password=${this.SApassword}&trustServerCertificate=true&persistSecurityInfo=true`;
+    }
+
 }
