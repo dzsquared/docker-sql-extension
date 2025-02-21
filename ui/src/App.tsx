@@ -242,7 +242,7 @@ export function App() {
           <Stack spacing={1}>
             <Typography variant="h3">Connect to SQL</Typography>
             <Typography>
-              A connection string is provided in the container list to facilitate connecting to SQL from different interfaces. The default connection string includes the custom container port and sa password. SQL Server Management Studio (SSMS), VS Code, or Azure Data Studio can be used to connect to the database. The extension includes both a button to copy the connection string to the clipboard and a button to open the connection in Azure Data Studio.
+              A connection string is provided in the container list to facilitate connecting to SQL from different interfaces. The default connection string includes the custom container port and sa password. SQL Server Management Studio (SSMS), VS Code, or Azure Data Studio can be used to connect to the database. The extension includes both a button to copy the connection string to the clipboard and a button to open the connection in Azure Data Studio or the mssql extension in VS Code.
             </Typography>
             <Typography>
               The SQL containers extension includes an integrated command line interface (CLI) for basic querying and management of the SQL Server instance. To open the CLI, click the "Connect with sqlcmd" button in the database list in the container details.

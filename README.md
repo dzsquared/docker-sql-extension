@@ -3,9 +3,9 @@
 ![GitHub branch check runs](https://img.shields.io/github/check-runs/dzsquared/docker-sql-extension/main) &nbsp;![Docker Pulls](https://img.shields.io/docker/pulls/drewsk/docker-sql-extension)
 
 
-This repository contains the code for the Docker [SQL extension](https://open.docker.com/extensions/marketplace?extensionId=drewsk/docker-sql-extension&tag=0.2.0), which enables you to create and manage SQL containers in Docker Desktop.
+This repository contains the code for the Docker [SQL extension](https://open.docker.com/extensions/marketplace?extensionId=drewsk/docker-sql-extension&tag=0.3.0), which enables you to create and manage SQL containers in Docker Desktop.
 
-### 🔌 Install via Docker Desktop https://open.docker.com/extensions/marketplace?extensionId=drewsk/docker-sql-extension&tag=0.2.0
+### 🔌 Install via Docker Desktop https://open.docker.com/extensions/marketplace?extensionId=drewsk/docker-sql-extension&tag=0.3.0
 
 ## Get started
 
@@ -13,11 +13,11 @@ After installing the extension, you can create a new SQL container by clicking o
 
 ![Docker SQL extension](./images/screenshot2.png)
 
-Once a container is created, you can start, stop, and delete it using the buttons in the extension tab. Under the container details you can create databases and connect to the container - either directly in the extension with the embedded sqlcmd tool or by using your preferred SQL client. For convenience the connection string is displayed in the extension tab and a button for launching Azure Data Studio is provided.
+Once a container is created, you can start, stop, and delete it using the buttons in the extension tab. Under the container details you can create databases and connect to the container - either directly in the extension with the embedded sqlcmd tool or by using your preferred SQL client. For convenience the connection string is displayed in the extension tab and a button for launching Azure Data Studio and VS Code is provided.
 
 ![Creating a database](./images/create_database.png)
 
-_When launching Azure Data Studio from the extension the sa password is automatically copied into the clipboard, paste it in the connection dialog when Azure Data Studio opens._
+_When launching Azure Data Studio or VS Code from the extension the sa password is automatically copied into the clipboard, paste it in the connection dialog when the application opens._
 
 > [!TIP]
 > A full help guide is available in the extension tab under the question mark icon.
