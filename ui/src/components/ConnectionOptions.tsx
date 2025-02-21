@@ -4,14 +4,12 @@ import { DvrRounded } from '@mui/icons-material';
 import { copyToClipboard } from './ContainerList';
 
 // copies the password to the clipboard, then opens the connectionURI
-const openADS = (connectionURI: string, saPassword: string) => {
+const openURI = (connectionURI: string, saPassword: string) => {
     copyToClipboard(saPassword);
-    window.location.href = connectionURI;
-}
-
-const openVSC = (connectionURI: string, saPassword: string) => {
-    copyToClipboard(saPassword);
-    window.location.href = connectionURI;
+    // wait 1 second
+    setTimeout(() => {
+        window.location.href = connectionURI;
+    }, 1000);
 }
 
 export const ConnectionOptions = ({ container, trackEvent }) => {
@@ -23,7 +21,7 @@ if (osName !== "Windows") {
                 <IconButton size="small" aria-label='connect' disabled={!(container.Status === "running")}
                     onClick={() => {
                         trackEvent('OpenADS', { containerId: container.Id });
-                        openADS(container.adsConnectionURI(), container.SApassword);
+                        openURI(container.adsConnectionURI(), container.SApassword);
                     }}>
                     <DvrRounded />
                 </IconButton>
@@ -32,7 +30,7 @@ if (osName !== "Windows") {
                 <IconButton size="small" aria-label='connect' disabled={!(container.Status === "running")}
                     onClick={() => {
                         trackEvent('OpenVSC', { containerId: container.Id });
-                        openVSC(container.vscConnectionURI(), container.SApassword);
+                        openURI(container.vscConnectionURI(), container.SApassword);
                     }}>
                     <DvrRounded />
                 </IconButton>
@@ -46,7 +44,7 @@ if (osName !== "Windows") {
             <IconButton size="small" aria-label='connect' disabled={!(container.Status === "running")}
                 onClick={() => {
                     trackEvent('OpenADS', { containerId: container.Id });
-                    openADS(container.adsConnectionURI(), container.SApassword);
+                    openURI(container.adsConnectionURI(), container.SApassword);
                 }}>
                 <DvrRounded />
             </IconButton>
@@ -55,7 +53,7 @@ if (osName !== "Windows") {
                 <IconButton size="small" aria-label='connect' disabled={!(container.Status === "running")}
                     onClick={() => {
                         trackEvent('OpenVSC', { containerId: container.Id });
-                        openVSC(container.vscConnectionURI(), container.SApassword);
+                        openURI(container.vscConnectionURI(), container.SApassword);
                     }}>
                     <DvrRounded />
                 </IconButton>
