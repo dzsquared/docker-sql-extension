@@ -23,14 +23,14 @@ COPY ui /ui
 RUN npm run build
 
 
-FROM debian:bullseye AS cli-stage
+FROM debian:bookworm AS cli-stage
 ARG TARGETARCH
 COPY cli-${TARGETARCH}.sh .
 RUN apt-get update && apt-get install -y curl bzip2 && \
     chmod +x cli-${TARGETARCH}.sh
 RUN ./cli-${TARGETARCH}.sh
 
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 LABEL org.opencontainers.image.title="SQL container manager" \
     org.opencontainers.image.description="Create, connect, and manage SQL dev containers" \
     org.opencontainers.image.vendor="DrewSK.Tech" \
