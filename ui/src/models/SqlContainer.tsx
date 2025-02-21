@@ -41,11 +41,11 @@ export class SqlContainer {
     }
 
     public adsConnectionURI(): string {
-        return `azuredatastudio://openConnectionDialog?connectionName=${this.Name}&server=localhost,${this.Port1433}&authenticationType=SqlLogin&user=sa&password=${this.SApassword}&database=master&connectionProperties={"trustServerCertificate":"true"}`;
+        return `azuredatastudio://openConnectionDialog?connectionName=${this.Name}&server=localhost,${this.Port1433}&authenticationType=SqlLogin&user=sa&database=master&connectionProperties={"trustServerCertificate":"true"}`;
     }
 
     public vscConnectionURI(): string {
-        return `vscode://ms-mssql.mssql/connect?profileName=${this.Name}&server=localhost,${this.Port1433}&database=master&authenticationType=SqlLogin&user=sa&password=${this.SApassword}&trustServerCertificate=true&persistSecurityInfo=true`;
+        return `vscode://ms-mssql.mssql/connect?profileName=${this.Name}&server=localhost,${this.Port1433}&database=master&authenticationType=SqlLogin&user=sa&trustServerCertificate=true&persistSecurityInfo=true&savePassword=true`;
     }
 
 }
