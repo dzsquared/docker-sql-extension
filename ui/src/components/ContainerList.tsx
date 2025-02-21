@@ -1,23 +1,20 @@
 import * as React from 'react';
 import { AppBar, Box, Button, Chip, CircularProgress, Collapse, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, IconButton, InputLabel, List, ListItem, ListItemIcon, ListItemText, OutlinedInput, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Tooltip, Typography } from '@mui/material';
-import { AddCircleRounded, ArticleRounded, ContentCopyRounded, StopRounded, PlayArrowRounded, KeyboardArrowUpRounded, KeyboardArrowDownRounded, TerminalRounded, DvrRounded, CloseRounded, DeleteRounded } from "@mui/icons-material";
+import { AddCircleRounded, ArticleRounded, ContentCopyRounded, StopRounded, PlayArrowRounded, KeyboardArrowUpRounded, KeyboardArrowDownRounded, TerminalRounded, CloseRounded, DeleteRounded } from "@mui/icons-material";
 
 import { SqlContainer } from '../models/SqlContainer';
+import { ConnectionOptions } from './ConnectionOptions';
 import { useDockerDesktopClient } from '../App';
 
-const copyToClipboard = (text: string) => {
+export const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
+    const ddClient = useDockerDesktopClient();
+    ddClient.desktopUI.toast.success("Password copied to clipboard");
 }
 
 const navigateToContainer = (containerId: string) => {
     const ddClient = useDockerDesktopClient();
     ddClient.desktopUI.navigate.viewContainerLogs(containerId);
-}
-
-// copies the password to the clipboard, then opens the connectionURI
-const openADS = (connectionURI: string, saPassword: string) => {
-    copyToClipboard(saPassword);
-    window.location.href = connectionURI;
 }
 
 var ContainerStatus = ({ status }) => {
@@ -205,15 +202,7 @@ var ContainerRow = ({ container, startContainer, stopContainer, deleteContainer,
                                 <ContentCopyRounded />
                             </IconButton>
                         </Tooltip>
-                        <Tooltip title="Connect in Azure Data Studio">
-                            <IconButton size="small" aria-label='connect' disabled={!(container.Status === "running")}
-                                onClick={() => {
-                                    trackEvent('OpenADS', { containerId: container.Id });
-                                    openADS(container.adsConnectionURI(), container.SApassword);
-                                }}>
-                                <DvrRounded />
-                            </IconButton>
-                        </Tooltip>
+                        <ConnectionOptions container={container} trackEvent={trackEvent} />
                         <Tooltip title="Container logs">
                             <IconButton size="small" aria-label='logs' onClick={() => {
                                 trackEvent('ViewLogs', { containerId: container.Id });
